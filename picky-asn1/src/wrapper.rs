@@ -289,6 +289,11 @@ pub struct OctetStringAsn1(#[serde(with = "serde_bytes")] pub Vec<u8>);
 type VecU8 = Vec<u8>;
 impls! { OctetStringAsn1(VecU8), Tag::OCTET_STRING }
 
+
+pub struct RawDerAsn1(#[serde(with = "serde_bytes")] pub Vec<u8>);
+
+impls! { RawDerAsn1(VecU8), Tag::NO_TAG }
+
 /// A BigInt wrapper for Asn1 encoding.
 ///
 /// Simply use primitive integer types if you don't need big integer.

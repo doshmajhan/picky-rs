@@ -5,6 +5,7 @@ use std::fmt;
 pub struct Tag(u8);
 
 impl Tag {
+    pub const NO_TAG: Self = Tag(0x00);
     pub const BOOLEAN: Self = Tag(0x01);
     pub const INTEGER: Self = Tag(0x02);
     pub const BIT_STRING: Self = Tag(0x03);
@@ -91,6 +92,7 @@ impl From<u8> for Tag {
 impl fmt::Display for Tag {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match *self {
+            Tag::NO_TAG => write!(f, "NO TAG"),
             Tag::BOOLEAN => write!(f, "BOOLEAN"),
             Tag::INTEGER => write!(f, "INTEGER"),
             Tag::BIT_STRING => write!(f, "BIT STRING"),
